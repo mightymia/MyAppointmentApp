@@ -1,0 +1,25 @@
+<div ng-controller='usersController as userCrtl'>
+<div ng-controller='appointmentsController as appointmentCrtl'>
+	<a href="#/" class='pull-right'>Log Out</a>
+	<h2>Doctor's Appointments</h2>
+	<hr>
+	<div>
+		<input class='pull-right' type='text' placeholder='search' ng-model='filter_name'>
+		<table class='table table-bordered'>
+			<th>Date</th>
+			<th>Time</th>
+			<th>Patient Name</th>
+			<th>Complaint</th>
+			<th>Action</th>
+			<tr ng-repeat='appointment in appointmentCrtl.appointments | filter: filter_name'>
+				<td><span ng-bind='appointment.date | date: "MMMM d, yyyy"'></span></td>
+				<td><span ng-bind='appointment.time | date: "h:mma"'></span></td>
+				<td><span ng-bind='appointment.name'></span></td>
+				<td><span ng-bind='appointment.complaint'></span></td>
+				<td><button class='btn btn-danger'ng-click='appointmentCrtl.removeAppointment(appointment)' ng-if='appointment.name == userCrtl.user[0].name'>Cancel</button></td>
+			</tr>
+		</table>
+		<a href="#/newAppointment">Add new appointment</a>
+	</div>
+	</div>
+</div>

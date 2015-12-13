@@ -1,0 +1,24 @@
+<div ng-controller='usersController as userCrtl'>
+<div ng-controller='appointmentsController as appointmentCrtl'>
+	<a href="#/" class='pull-right'>Log Out</a>
+	<h2>New Appointment</h2>
+	<form>
+		Date: <input type='date' ng-model='appointmentCrtl.newAppointment.date'>
+		Time: <input type='time' ng-model='appointmentCrtl.newAppointment.time'>
+		Complaint: <textarea ng-model='appointmentCrtl.newAppointment.complaint'></textarea>
+		<a href="#/dashboard">Cancel</a>
+		<button class='btn btn-success' ng-click='appointmentCrtl.addAppointment(userCrtl.user[0].name)'>Add Appointment</button>
+	</form>
+		<ul ng-repeat='error in appointmentCrtl.errors'>
+		<ul ng-repeat='type in error'>
+		<ul ng-repeat='message in type'></ul>
+			<li ng-bind='type.message'></li>
+		</ul>
+		</ul>
+		<ul ng-repeat='error in appointmentCrtl.angularErrors'>
+			<li ng-bind='error'></li>
+		</ul>
+</div>
+</div>
+
+

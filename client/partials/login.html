@@ -1,0 +1,7 @@
+<div ng-controller='usersController as userCrtl'>
+	<h2>Welcome to My Appointments</h2>
+	<form>
+		<input type='text' ng-model='userCrtl.newUser.name'>
+		<button class='btn btn-info' ng-click='userCrtl.getUser()'>Enter</button>
+	</form>
+</div>
